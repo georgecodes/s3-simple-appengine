@@ -281,25 +281,27 @@ public class s3sh {
                     } else {
                         System.out.println(new String(data));
                     }
-                } else if(cmd.equals("getfile")) {
-                    if(st.countTokens() != 2) {
-                        System.out.println("error: getfile <id> <file>");
-                        continue;
-                    }
-
-                    byte[] data = m_store.getItem(st.nextToken());
-                    if(data == null) {
-                        System.out.println("item not found");
-                    } else {
-                        FileOutputStream datafile = new FileOutputStream(st.nextToken());
-                        try {
-                            datafile.write(data);
-                        }
-                        finally {
-                            datafile.close();
-                        }
-                    }
-                } else if(cmd.equals("help")) {
+                } 
+//                else if(cmd.equals("getfile")) {
+//                    if(st.countTokens() != 2) {
+//                        System.out.println("error: getfile <id> <file>");
+//                        continue;
+//                    }
+//
+//                    byte[] data = m_store.getItem(st.nextToken());
+//                    if(data == null) {
+//                        System.out.println("item not found");
+//                    } else {
+//                        FileOutputStream datafile = new FileOutputStream(st.nextToken());
+//                        try {
+//                            datafile.write(data);
+//                        }
+//                        finally {
+//                            datafile.close();
+//                        }
+//                    }
+//                } 
+                else if(cmd.equals("help")) {
                     printHelp();
                 } else if(cmd.equals("host")) {
                     if(st.countTokens() > 1) {

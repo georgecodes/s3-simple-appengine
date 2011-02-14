@@ -306,6 +306,7 @@ public class S3Store {
         final HttpURLConnection itemConn = getItemURLConnection("PUT", id, data, headers);
         
         itemConn.setDoOutput(true);
+        itemConn.setInstanceFollowRedirects(false);
 
         itemConn.connect();
         OutputStream dataout = itemConn.getOutputStream();

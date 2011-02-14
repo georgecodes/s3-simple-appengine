@@ -818,71 +818,73 @@ public class Base64
     
     
     
-    /**
-     * Convenience method for encoding data to a file.
-     *
-     * @param dataToEncode byte array of data to encode in base64 form
-     * @param filename Filename for saving encoded data
-     * @return <tt>true</tt> if successful, <tt>false</tt> otherwise
-     *
-     * @since 2.1
-     */
-    public static boolean encodeToFile( byte[] dataToEncode, String filename )
-    {
-        boolean success = false;
-        Base64.OutputStream bos = null;
-        try
-        {
-            bos = new Base64.OutputStream( 
-                      new java.io.FileOutputStream( filename ), Base64.ENCODE );
-            bos.write( dataToEncode );
-            success = true;
-        }   // end try
-        catch( java.io.IOException e )
-        {
-            
-            success = false;
-        }   // end catch: IOException
-        finally
-        {
-            try{ bos.close(); } catch( Exception e ){}
-        }   // end finally
-        
-        return success;
-    }   // end encodeToFile
+
+	// /**
+	// * Convenience method for encoding data to a file.
+	// *
+	// * @param dataToEncode byte array of data to encode in base64 form
+	// * @param filename Filename for saving encoded data
+	// * @return <tt>true</tt> if successful, <tt>false</tt> otherwise
+	// *
+	// * @since 2.1
+	// */
+	// public static boolean encodeToFile( byte[] dataToEncode, String filename
+	// )
+	// {
+	// boolean success = false;
+	// Base64.OutputStream bos = null;
+	// try
+	// {
+	// bos = new Base64.OutputStream(
+	// new java.io.FileOutputStream( filename ), Base64.ENCODE );
+	// bos.write( dataToEncode );
+	// success = true;
+	// } // end try
+	// catch( java.io.IOException e )
+	// {
+	//
+	// success = false;
+	// } // end catch: IOException
+	// finally
+	// {
+	// try{ bos.close(); } catch( Exception e ){}
+	// } // end finally
+	//
+	// return success;
+	// } // end encodeToFile
     
     
-    /**
-     * Convenience method for decoding data to a file.
-     *
-     * @param dataToDecode Base64-encoded data as a string
-     * @param filename Filename for saving decoded data
-     * @return <tt>true</tt> if successful, <tt>false</tt> otherwise
-     *
-     * @since 2.1
-     */
-    public static boolean decodeToFile( String dataToDecode, String filename )
-    {
-        boolean success = false;
-        Base64.OutputStream bos = null;
-        try
-        {
-                bos = new Base64.OutputStream( 
-                          new java.io.FileOutputStream( filename ), Base64.DECODE );
-                bos.write( dataToDecode.getBytes( PREFERRED_ENCODING ) );
-                success = true;
-        }   // end try
-        catch( java.io.IOException e )
-        {
-            success = false;
-        }   // end catch: IOException
-        finally
-        {
-                try{ bos.close(); } catch( Exception e ){}
-        }   // end finally
-        
-        return success;
-    }   // end decodeToFile
+//    /**
+//     * Convenience method for decoding data to a file.
+//     *
+//     * @param dataToDecode Base64-encoded data as a string
+//     * @param filename Filename for saving decoded data
+//     * @return <tt>true</tt> if successful, <tt>false</tt> otherwise
+//     *
+//     * @since 2.1
+//     */
+//    public static boolean decodeToFile( String dataToDecode, String filename )
+//    {
+//        boolean success = false;
+//        Base64.OutputStream bos = null;
+//        try
+//        {
+//                bos = new Base64.OutputStream( 
+//                          new java.io.FileOutputStream( filename ), Base64.DECODE );
+//                bos.write( dataToDecode.getBytes( PREFERRED_ENCODING ) );
+//                success = true;
+//        }   // end try
+//        catch( java.io.IOException e )
+//        {
+//            success = false;
+//        }   // end catch: IOException
+//        finally
+//        {
+//                try{ bos.close(); } catch( Exception e ){}
+//        }   // end finally
+//        
+//        return success;
+//    }   // end decodeToFile
     
     
     

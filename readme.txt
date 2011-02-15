@@ -1,10 +1,10 @@
+This project is a Java library for connecting to Amazon S3 from Google App Engine.
+
 Last Update to Readme: 2011/02/15
 
 =======
 
-About: 
-
-This project is a simple java library for connecting to Amazon S3 from Google App Engine.
+About This Project:
 
 The code is a mix of these libraries:
 s3-simple (forked) -> https://github.com/ogrodnek/s3-simple

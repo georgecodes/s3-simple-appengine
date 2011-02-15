@@ -27,7 +27,7 @@ Another library I tried was the Amazon SDK for Java.  It is also unable to run o
 Features:
 
 //Create an S3Store Object and Set the Current Bucket
-S3Store s3 = new S3Store("s3.amazonaws.com", ACCESS_KEY, SECRET_KEY);
+S3Store s3 = new S3Store(Constants.S3_DEFAULT_HOSTNAME, ACCESS_KEY, SECRET_KEY);
 s3.setBucket("my-bucket");
 
 //Sign an S3 URL

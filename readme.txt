@@ -1,5 +1,11 @@
 This project is a Java library for connecting to Amazon S3 from Google App Engine.
 
+This project will possibly updated as I need more functionality, but not supported.  It's purpose on here is to "share the love" just as @ogrodnek did, where I was able to fork from.
+
+More information available at: http://socialappdev.com/using-amazon-s3-with-google-app-engine-02-2011
+
+=======
+
 Last Update to Readme: 2011/02/15
 
 =======

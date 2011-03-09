@@ -39,7 +39,7 @@ import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
 
-import com.traqmate.share.shared.util.S3Constants;
+import com.traqmate.share.server.util.S3Constants;
 
 /**
  * Simple interface class for using S3 in a basic fashion. An instance of this

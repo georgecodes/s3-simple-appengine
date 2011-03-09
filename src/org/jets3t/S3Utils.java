@@ -33,7 +33,7 @@ public class S3Utils {
 						"versionId", "uploads", "uploadId", "partNumber" });
 	}
 
-	public static final List HTTP_HEADER_METADATA_NAMES = Arrays
+	public static final List<String> HTTP_HEADER_METADATA_NAMES = Arrays
 			.asList(new String[] { "content-type", "content-md5",
 					"content-length", "content-language", "expires",
 					"cache-control", "content-disposition", "content-encoding" });

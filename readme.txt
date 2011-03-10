@@ -13,7 +13,7 @@ jets3t -> https://bitbucket.org/jmurty/jets3t/
 
 jets3t and Amazon's SDK are great but they use the Apache Commons http client which doesn't work 100% on Google App Engine.  This is due to restrictions... namely, no threads, no sockets, and... other restrictions...
 
-Another library I tried was the Amazon SDK for Java.  It is also unable to run on Google's App Engine due to the restrictions mentioned above. -> http://aws.amazon.com/sdkforjava/
+Amazon SDK for Java was also tried, but was unable to run on Google's App Engine due to the restrictions mentioned above. -> http://aws.amazon.com/sdkforjava/
 
 ======= Changes =======
 2011.03.08

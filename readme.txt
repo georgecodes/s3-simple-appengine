@@ -1,10 +1,11 @@
 ======= About This Project =======
 This project is a Java library for connecting to Amazon S3 from Google App Engine.
 
-This project will possibly updated, but is not supported.  It's purpose on here is to "share the love" just as @ogrodnek did, where we were able to fork from.
+This project will possibly be updated, but will not be supported or maintained.  It's purpose on here is to "share the love" just as @ogrodnek did, where we were able to fork from.
 
 More information available at: http://socialappdev.com/using-amazon-s3-with-google-app-engine-02-2011
 
+======= Other Java Amazon S3 Libraries =======
 The code is a mix of these libraries:
 s3-simple (forked) -> https://github.com/ogrodnek/s3-simple
 s3-shell -> http://developer.amazonwebservices.com/connect/entry.jspa?externalID=138&categoryID=47

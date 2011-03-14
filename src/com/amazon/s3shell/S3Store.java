@@ -26,8 +26,6 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 import java.util.TimeZone;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 import javax.crypto.Mac;
 import javax.crypto.spec.SecretKeySpec;
@@ -35,6 +33,8 @@ import javax.xml.parsers.SAXParser;
 import javax.xml.parsers.SAXParserFactory;
 
 import org.jets3t.GETRequestSigner;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
@@ -57,8 +57,8 @@ import com.traqmate.share.server.util.S3Constants;
  * @author Grant Emery (c) 2006 Amazon.com
  **/
 public class S3Store {
-	private static final Logger ourLogger = Logger.getLogger(S3Store.class
-			.getName());
+	private static final Logger ourLogger = LoggerFactory
+			.getLogger(S3Store.class);
 	/** S3 host to connect to */
 	private final String m_host;
 	/** AWS Access Key ID to connect as */
@@ -626,8 +626,8 @@ public class S3Store {
 
 		// 2xx response codes are ok, everything else is an error
 		if (responseCode / 100 != 2) {
-			ourLogger.log(Level.SEVERE, String.format("%s: response code %d",
-					operation, responseCode));
+			ourLogger.error(String.format("%s: response code %d", operation,
+					responseCode));
 			printError(conn);
 
 			return false;
@@ -661,7 +661,7 @@ public class S3Store {
 		}
 
 		for (String msg : olp.getList()) {
-			ourLogger.log(Level.SEVERE, msg);
+			ourLogger.error(msg);
 		}
 	}
 

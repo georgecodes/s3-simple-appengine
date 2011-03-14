@@ -3,15 +3,15 @@ package org.jets3t;
 import java.io.UnsupportedEncodingException;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class GETRequestSigner {
 	private static final String US_AWS_ENDPOINT = "s3.amazonaws.com";
 	private static final String AWS_REST_HEADER_PREFIX = "x-amz-";
 
-	private static Logger log = Logger.getLogger(GETRequestSigner.class
-			.getName());
+	private static Logger log = LoggerFactory.getLogger(GETRequestSigner.class);
 	private String AWSAccessKeyId;
 	private String AWSSecret;
 
@@ -135,7 +135,7 @@ public class GETRequestSigner {
 					String.valueOf(secondsSinceEpoch), AWS_REST_HEADER_PREFIX,
 					S3Utils.getResourceParameterNames());
 
-			log.log(Level.INFO, "Signing canonical string:\n" + canonicalString);
+			log.info("Signing canonical string:\n" + canonicalString);
 
 			String signedCanonical = S3Utils.signWithHmacSha1(AWSSecret,
 					canonicalString);

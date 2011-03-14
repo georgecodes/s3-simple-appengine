@@ -8,7 +8,13 @@ import java.util.Date;
 import javax.crypto.Mac;
 import javax.crypto.spec.SecretKeySpec;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 public class AmazonS3PolicyEncoder {
+
+	private static Logger log = LoggerFactory.getLogger(AmazonS3PolicyEncoder.class
+			.getName());
 
 	/**
 	 * Calculates the Policy and Signature from <code>this</code>
@@ -36,15 +42,14 @@ public class AmazonS3PolicyEncoder {
 
 		Date one = new Date();
 		PolicyAndSignature policyAndSignature = new PolicyAndSignature();
-		System.out.println(policyDocumentJSON);
+		log.trace("Policy Document: " + policyDocumentJSON);
 
 		try {
 			String policy = Base64ForAppEngine
 					.encodeBytes(policyDocumentJSON.getBytes("UTF-8"))
 					.replaceAll("\n", "").replaceAll("\r", "");
 
-			System.out.println((new Date().getTime() - one.getTime()) * .001
-					+ " Seconds to Encode Policy.");
+			Double encodePolicySeconds = (new Date().getTime() - one.getTime()) * .001;
 
 			Date two = new Date();
 
@@ -55,9 +60,13 @@ public class AmazonS3PolicyEncoder {
 					hmac.doFinal(policy.getBytes("UTF-8")))
 					.replaceAll("\n", "");
 
-			System.out.println((new Date().getTime() - two.getTime()) * .001
-					+ " Seconds to Calculate Signature.");
+			Double calculateSignatureSeconds = (new Date().getTime() - two
+					.getTime()) * .001;
 
+			log.info("Encode Policy [" + encodePolicySeconds
+					+ " Seconds], Calculate Signature ["
+					+ calculateSignatureSeconds + " Seconds].");
+			
 			policyAndSignature.setPolicy(policy);
 			policyAndSignature.setSignature(signature);
 		} catch (NoSuchAlgorithmException e) {

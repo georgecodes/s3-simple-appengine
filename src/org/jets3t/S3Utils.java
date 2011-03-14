@@ -13,17 +13,18 @@ import java.util.Locale;
 import java.util.Map;
 import java.util.SortedMap;
 import java.util.TreeMap;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import java.util.regex.Pattern;
 
 import javax.crypto.Mac;
 import javax.crypto.spec.SecretKeySpec;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.amazon.s3shell.Base64;
 
 public class S3Utils {
-	private static Logger log = Logger.getLogger(S3Utils.class.getName());
+	private static Logger log = LoggerFactory.getLogger(S3Utils.class);
 
 	public static List<String> getResourceParameterNames() {
 		// Special HTTP parameter names that refer to resources in S3
@@ -219,8 +220,7 @@ public class S3Utils {
 	public static String signWithHmacSha1(String awsSecretKey,
 			String canonicalString) throws ServiceException {
 		if (awsSecretKey == null) {
-			log.log(Level.INFO,
-					"Canonical string will not be signed, as no AWS Secret Key was provided");
+			log.info("Canonical string will not be signed, as no AWS Secret Key was provided");
 			return null;
 		}
 
@@ -316,7 +316,7 @@ public class S3Utils {
 
 		return true;
 	}
-	
+
 	/**
 	 * Encodes a URL string but leaves a delimiter string unencoded. Spaces are
 	 * encoded as "%20" instead of "+".

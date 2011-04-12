@@ -39,8 +39,6 @@ import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
 
-import com.traqmate.share.server.util.S3Constants;
-
 /**
  * Simple interface class for using S3 in a basic fashion. An instance of this
  * class is intended for a single thread to interact with a single bucket in S3.
@@ -950,13 +948,13 @@ public class S3Store {
 	}
 
 	public String createSignedGETUrl(String objectKey, int validForInSeconds,
-			Boolean isSecure) {
+			Boolean isSecure, String awsAccessKeyId, String awsSecretKey) {
 
 		Long currTime = new Date().getTime();
 		Long currentTimeInSeconds = currTime / 1000;
 
 		GETRequestSigner signer = new GETRequestSigner(
-				S3Constants.AWS_ACCESS_KEY_ID, S3Constants.AWS_SECRET_KEY);
+				awsAccessKeyId, awsSecretKey);
 		try {
 			return signer.createSignedGETUrl(this.m_bucket, objectKey,
 					currentTimeInSeconds + validForInSeconds, isSecure);

@@ -1,0 +1,19 @@
+#Apple Files
+*.DS_Store
+
+Java Binary Files
+*.class
+*.jar
+
+#SVN Files
+*.svn
+*.settings
+.project
+.classpath
+
+#Target
+target/**
+
+#No Libraries
+#Binaries Directory
+bin/*

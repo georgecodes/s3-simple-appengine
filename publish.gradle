@@ -1,0 +1,66 @@
+apply from: 'build.gradle'
+
+apply plugin: 'signing'
+
+task javadocJar(type: Jar) {
+    classifier = 'javadoc'
+    from javadoc
+}
+
+task sourcesJar(type: Jar) {
+    classifier = 'sources'
+    from sourceSets.main.allSource
+}
+
+artifacts {
+    archives jar, javadocJar, sourcesJar
+}
+
+signing {
+    sign configurations.archives
+}
+
+uploadArchives {
+    repositories {
+        mavenDeployer {
+            beforeDeployment { MavenDeployment deployment -> signing.signPom(deployment) }
+
+            repository(url: "https://oss.sonatype.org/service/local/staging/deploy/maven2/") {
+                authentication(userName: sonatypeUsername, password: sonatypePassword)
+            }
+
+            snapshotRepository(url: "https://oss.sonatype.org/content/repositories/snapshots/") {
+                authentication(userName: sonatypeUsername, password: sonatypePassword)
+            }
+
+            pom.project {
+                name 'redcorn'
+                packaging 'jar'
+                // optionally artifactId can be defined here
+                description 'A lightweight IoC container for Java objects'
+                url 'https://georgemcintosh.com/redcorn'
+
+                scm {
+                    connection 'scm:git:git://github.com/georgecodes/redcorn.git'
+                    developerConnection 'scm:git:git://github.com/georgecodes/redcorn.git'
+                    url 'scm:git:git://github.com/georgecodes/redcorn.git'
+                }
+
+                licenses {
+                    license {
+                        name 'The Apache License, Version 2.0'
+                        url 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+                    }
+                }
+
+                developers {
+                    developer {
+                        id 'georgemc'
+                        name 'George McIntosh'
+                        email 'george@georgemcintosh.com'
+                    }
+                }
+            }
+        }
+    }
+}

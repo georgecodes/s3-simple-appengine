@@ -1,0 +1,19 @@
+apply plugin: 'java'
+apply plugin: 'maven'
+
+
+group='com.elevenware'
+version='1.0'
+archivesBaseName='s3-simple-appengine'
+
+repositories {
+    mavenCentral()
+    mavenLocal()
+}
+
+dependencies {
+    testCompile "junit:junit:4.11"
+    testCompile "org.mockito:mockito-all:1.9.5"
+    compile "ch.qos.logback:logback-classic:1.1.2"
+}
+

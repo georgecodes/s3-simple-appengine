@@ -11,6 +11,7 @@
 	<organization>
 		<name>Elevenware Limited</name>
 	</organization>
+    <description>An S3 library that works from inside Google App engine</description>
     <licenses>
         <license>
             <name>Apache License, Version 2.0</name>

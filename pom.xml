@@ -7,11 +7,24 @@
 	<packaging>jar</packaging>
 	<version>1.0</version>
 	<name>S3 Simple AppEngine</name>
-	<url>https://github.com/handstandtech/s3-simple-appengine</url>
+	<url>https://github.com/georgecodes/s3-simple-appengine</url>
 	<organization>
-		<name>Handstand Technologies, LLC</name>
-		<url>http://handstandtech.com</url>
+		<name>Elevenware Limited</name>
 	</organization>
+    <licenses>
+        <license>
+            <name>Apache License, Version 2.0</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+            <distribution>repo</distribution>
+            <comments>A business-friendly OSS license</comments>
+        </license>
+    </licenses>
+    <scm>
+        <connection>scm:git:github.com/georgecodes/s3-simple-appengine.git</connection>
+        <developerConnection>scm:git:github.com/georgecodes/s3-simple-appengine.git</developerConnection>
+        <tag>HEAD</tag>
+        <url>https://github.com/georgecodes/s3-simple-appengine.git</url>
+    </scm>
 	<developers>
 		<developer>
 			<id>handstandsam</id>
